@@ -22,13 +22,13 @@ def cosine_similarity_bert(s1, s2):
     similarity = 1 - cosine(emb1, emb2)
     return similarity
 
-with open('datasets/journydb/understanding_caption_results_iter2.json', "r") as f:
+with open('datasets/journeydb/understanding_caption_results_iter2.json', "r") as f:
     understanding_caption_data_iter2 = json.load(f)
 
-with open('datasets/journydb/generation_vqa_results_iter2.json', 'r') as f:
+with open('datasets/journeydb/generation_vqa_results_iter2.json', 'r') as f:
     generation_vqa_data_iter2 = json.load(f)
 
-with open('datasets/journydb/pair_dpo_data.json', "r") as f:
+with open('datasets/journeydb/pair_dpo_data.json', "r") as f:
     initial_dpo_data = json.load(f)    
     
 
@@ -57,17 +57,17 @@ for i in tqdm(range(len(understanding_caption_data_iter2))):
     max_result = max(result)
     min_result = min(result)
     if max_result > initial_dpo_data[i]["vqa_score_win"]:
-        image_win_path = "datasets/journydb/generated_images_iter2/" + str(generation_vqa_data_iter2[i]["id"]) + "/" + str(result.index(max_result)) + ".png"
+        image_win_path = "datasets/journeydb/generated_images_iter2/" + str(generation_vqa_data_iter2[i]["id"]) + "/" + str(result.index(max_result)) + ".png"
         image_lose_path = initial_dpo_data[i]["image_win"]
         vqa_score_win = max_result
         vqa_score_lose = initial_dpo_data[i]["vqa_score_win"]
     else:
-        image_win_path = "datasets/journydb/generated_images_iter2/" + str(generation_vqa_data_iter2[i]["id"]) + "/" + str(result.index(max_result)) + ".png"
+        image_win_path = "datasets/journeydb/generated_images_iter2/" + str(generation_vqa_data_iter2[i]["id"]) + "/" + str(result.index(max_result)) + ".png"
         image_lose_path = initial_dpo_data[i]["image_lose"]
         vqa_score_win = max_result
         vqa_score_lose = initial_dpo_data[i]["vqa_score_lose"]
 
-    with open(f"datasets/journydb/pair_dpo_data_iter2.json", "a") as f:
+    with open(f"datasets/journeydb/pair_dpo_data_iter2.json", "a") as f:
         json.dump({
             "id": understanding_caption_data_iter2[i]["id"],
             "img_path": understanding_caption_data_iter2[i]["img_path"],

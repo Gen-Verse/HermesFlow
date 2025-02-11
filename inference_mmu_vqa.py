@@ -69,10 +69,10 @@ if __name__ == '__main__':
     temperature = 0.8  # 1.0 = no change, < 1.0 = less random, > 1.0 = more random, in predictions
     top_k = 1  # retain only the top_k most likely tokens, clamp others to have 0 probability
 
-    with open('datasets/journydb/vqa_data.json', 'r') as f:
+    with open('datasets/journeydb/vqa_data.json', 'r') as f:
         vqa_data = json.load(f)
 
-    folder_path = 'datasets/journydb/generated_images'  
+    folder_path = 'datasets/journeydb/generated_images'  
     folder_names = []  
     for entry in os.listdir(folder_path):
         entry_path = os.path.join(folder_path, entry)
@@ -131,7 +131,7 @@ if __name__ == '__main__':
                 # print(text, text_sbert, vqa["answer"], 1 if text_sbert == vqa["answer"] else 0)
                 num += 1 if text_sbert == vqa["answer"] else 0
             result.append(round((num / len(matching_vqa)), 3))
-        with open(f'datasets/journydb/generation_vqa_results.json', "a") as f:
+        with open(f'datasets/journeydb/generation_vqa_results.json', "a") as f:
             json.dump({"id": vqa["id"],
                        "caption": vqa["caption"],
                        "question_number": len(matching_vqa),

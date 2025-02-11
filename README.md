@@ -20,8 +20,6 @@ This repository contains the official implementation of [HermesFlow](https://arx
   <a href="" target='_blank'>
   <img src="https://visitor-badge.laobi.icu/badge?page_id=Gen-Verse.HermesFlow&left_color=gray&right_color=%2342b983"></a> 
 </p>
-
-
 <details>
     <summary>Click for full abstract</summary>
 The remarkable success of the autoregressive paradigm has made significant advancement in Multimodal Large Language Models (MLLMs), with powerful models like Show-o, Transfusion and Emu3 made notable strides in unified image understanding and generation. For the first time, we uncover a common phenomenon: the understanding capability of MLLMs is usually stronger than their generative capability, with a significant gap between them. Building on this insight, we propose HermesFlow, a simple and general framework designed to seamlessly bridge the gap between understanding and generation in MLLMs. Specifically, we take the homologous data as input to curate homologous preference data of both understanding and generation. Through Pair-DPO and self-play iterative optimization, HermesFlow effectively aligns multimodal understanding and generation using homologous preference data. Extensive experiments demonstrate the significant superiority of our approach over prior methods, particularly in narrowing the gap between multimodal understanding and generation. These findings highlight the potential of HermesFlow as a general alignment framework for next-generation multimodal foundation models.
@@ -51,17 +49,16 @@ pip install -r requirements.txt
 
 ## Curate Homologous Preference Date
 
-We randomly select 5,000 image-caption pairs from [JourneyDB](https://huggingface.co/datasets/JourneyDB/JourneyDB) as the homologous input data, and store the detailed information in `datasets/journydb/initial_data.json` in the following format：
+We randomly select 5,000 image-caption pairs from [JourneyDB](https://huggingface.co/datasets/JourneyDB/JourneyDB) as the homologous input data, and store the detailed information in `datasets/journeydb/initial_data.json` in the following format：
 
 ```json
 [
     {
         "id": 238,
-        "img_path": "datasets/journydb/initial_images/238.jpg",
+        "img_path": "datasets/journeydb/initial_images/238.jpg",
         "prompt": "raccoon wearing a hat made of orange roses wallpaper pattern",
         "caption": "A raccoon wearing a hat made of an orange roses wallpaper pattern."
     },
-  ...
  ]
 ```
 
@@ -71,12 +68,12 @@ For the curation of understanding preference data:
 python3 inference_mmu_caption.py config=configs/hermesflow_demo_512x512.yaml
 ```
 
-Understanding result is saved at  `datasets/journydb/understanding_caption_results.json` .
+Understanding result is saved at  `datasets/journeydb/understanding_caption_results.json` .
 
 For the curation of generation preference data, first you should generate images according to input prompts:
 
 ```shell
-python3 inference_t2i.py config=configs/showo_demo_512x512.yaml batch_size=1 guidance_scale=5 generation_timesteps=50 mode='t2i'
+python3 inference_t2i.py config=configs/hermesflow_demo_512x512.yaml batch_size=1 guidance_scale=5 generation_timesteps=50 mode='t2i'
 ```
 
 We recommend using [TIFA](https://github.com/Yushi-Hu/tifa) to complement VQA data for a more comprehensive evaluation of generated images:
@@ -91,7 +88,7 @@ Then, use MLLM itself to conduct VQA evaluation on these generated images:
 python3 inference_mmu_vqa.py config=configs/hermesflow_demo_512x512.yaml
 ```
 
-Generation result is saved at  `datasets/journydb/generation_vqa_results.json` .
+Generation result is saved at  `datasets/journeydb/generation_vqa_results.json` .
 
 Finally, get the homologous preference data for Pair-DPO using:
 
@@ -99,25 +96,24 @@ Finally, get the homologous preference data for Pair-DPO using:
 python3 datasets/journeydb/get_dpo_data.py
 ```
 
-The final homologous preference data is save at  `datasets/journydb/pair_dpo_data.json` in the following format:
+The final homologous preference data is save at  `datasets/journeydb/pair_dpo_data.json` in the following format:
 
 ```json
 [
   	{
         "id": 238,
-        "img_path": "datasets/journydb/initial_images/238.jpg",
+        "img_path": "datasets/journeydb/initial_images/238.jpg",
         "prompt": "raccoon wearing a hat made of orange roses wallpaper pattern",
         "caption": "A raccoon wearing a hat made of an orange roses wallpaper pattern.",
         "caption_win": " A raccoon wearing a hat and standing in front of a floral wallpaper.",
         "caption_lose": " The image features a raccoon with an orange hat on, sitting on a table in front of a vase with flowers.",
         "bert_score_win": 0.9526261687278748,
         "bert_score_lose": 0.5964741706848145,
-        "image_win": "datasets/journydb/generated_images/238/5.png",
-        "image_lose": "datasets/journydb/generated_images/238/0.png",
+        "image_win": "datasets/journeydb/generated_images/238/5.png",
+        "image_lose": "datasets/journeydb/generated_images/238/0.png",
         "vqa_score_win": 0.667,
         "vqa_score_lose": 0.5
     },
-  ...
 ]
 ```
 
@@ -146,25 +142,24 @@ First you should follow the same step before to curate understanding and prefere
 python3 datasets/journeydb/get_dpo_data_iterative.py
 ```
 
-The updated homologous preference data is save at  `datasets/journydb/pair_dpo_data.json` in the following format:
+The updated homologous preference data is save at  `datasets/journeydb/pair_dpo_data.json` in the following format:
 
 ```json
 [
 		{
         "id": 238,
-        "img_path": "datasets/journydb/initial_images/238.jpg",
+        "img_path": "datasets/journeydb/initial_images/238.jpg",
         "prompt": "raccoon wearing a hat made of orange roses wallpaper pattern",
         "caption": "A raccoon wearing a hat made of an orange roses wallpaper pattern.",
         "caption_win": " A raccoon wearing a hat and standing next to a vase of flowers.",
         "caption_lose": " The image features a raccoon with an orange hat on, sitting on a table in front of a vase with flowers.",
         "bert_score_win": 0.8783621191978455,
         "bert_score_lose": 0.5964741706848145,
-        "image_win": "datasets/journydb/generated_images_iter2/238/2.png",
-        "image_lose": "datasets/journydb/generated_images/238/5.png",
+        "image_win": "datasets/journeydb/generated_images_iter2/238/2.png",
+        "image_lose": "datasets/journeydb/generated_images/238/5.png",
         "vqa_score_win": 0.833,
         "vqa_score_lose": 0.667
     },
-    ...
 ]
 ```
 

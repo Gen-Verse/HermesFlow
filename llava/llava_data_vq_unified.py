@@ -562,7 +562,7 @@ class UniDPODatasetUnderstanding(Dataset):
 
         self.tokenizer = tokenizer
 
-        data_file_path = "datasets/journydb/dpo_data.json"
+        data_file_path = "datasets/journeydb/dpo_data.json"
 
         with open(data_file_path, 'r') as f:
             data = json.load(f)

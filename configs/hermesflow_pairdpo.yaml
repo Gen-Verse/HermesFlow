@@ -40,7 +40,7 @@ dataset:
     combined_loader_mode: "max_size_cycle"
     add_system_prompt: False
     params:
-        dpo_data_path: "datasets/journydb/pair_dpo_data.json"
+        dpo_data_path: "datasets/journeydb/pair_dpo_data.json"
         add_caption_prompt: True
         shuffle_buffer_size: 1000
         num_workers: 32

@@ -66,7 +66,7 @@ if __name__ == '__main__':
     temperature = 0.8  # 1.0 = no change, < 1.0 = less random, > 1.0 = more random, in predictions
     top_k = 1  # retain only the top_k most likely tokens, clamp others to have 0 probability
 
-    with open('datasets/journydb/initial_data.json', "r") as f:
+    with open('datasets/journeydb/initial_data.json', "r") as f:
         data = json.load(f)
 
     results = []
@@ -121,7 +121,7 @@ if __name__ == '__main__':
 
                 text = uni_prompting.text_tokenizer.batch_decode(cont_toks_list, skip_special_tokens=True)
                 caption.append(text[0])
-        with open(f"datasets/journydb/understanding_caption_results", "a") as f:
+        with open(f"datasets/journeydb/understanding_caption_results", "a") as f:
             json.dump({
                 "id": data[i]["id"],
                 "img_path": data[i]["img_path"],

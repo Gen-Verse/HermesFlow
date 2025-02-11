@@ -271,12 +271,12 @@ if __name__ == '__main__':
 
     elif config.mode == 't2i':
         
-        with open('datasets/journydb/initial_data.json', 'r') as f:
+        with open('datasets/journeydb/initial_data.json', 'r') as f:
             datas = json.load(f)
 
         for i in tqdm(range(len(datas))):
 
-            output_dir = os.path.join("datasets/journydb/generated_images", f'{datas[i]["id"]}')
+            output_dir = os.path.join("datasets/journeydb/generated_images", f'{datas[i]["id"]}')
             os.makedirs(output_dir, exist_ok=True)
 
             prompts = [datas[i]["caption"]] * 16

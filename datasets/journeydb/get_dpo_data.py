@@ -22,10 +22,10 @@ def cosine_similarity_bert(s1, s2):
     similarity = 1 - cosine(emb1, emb2)
     return similarity
 
-with open('datasets/journydb/understanding_caption_results.json', "r") as f:
+with open('datasets/journeydb/understanding_caption_results.json', "r") as f:
     understanding_caption_data = json.load(f)
 
-with open('datasets/journydb/generation_vqa_results.json', 'r') as f:
+with open('datasets/journeydb/generation_vqa_results.json', 'r') as f:
     generation_vqa_data = json.load(f)
     
 for i in tqdm(range(len(understanding_caption_data))):
@@ -47,7 +47,7 @@ for i in tqdm(range(len(understanding_caption_data))):
     if max_result != min_result and max_result > 0.6:
         max_index = result.index(max_result)
         min_index = result.index(min_result)
-    with open(f"datasets/journydb/pair_dpo_data.json", "a") as f:
+    with open(f"datasets/journeydb/pair_dpo_data.json", "a") as f:
         json.dump({
             "id": understanding_caption_data[i]["id"],
             "img_path": understanding_caption_data[i]["img_path"],
@@ -57,8 +57,8 @@ for i in tqdm(range(len(understanding_caption_data))):
             "caption_lose": understanding_caption_data[i]["caption_mmu"][min_bert_score_index],
             "bert_score_win": max_bert_score,
             "bert_score_lose": min_bert_score,
-            "image_win": "datasets/journydb/generated_images/"+str(understanding_caption_data[i]["id"])+"/"+str(max_index)+".png",
-            "image_lose": "datasets/journydb/generated_images/"+str(understanding_caption_data[i]["id"])+"/"+str(min_index)+".png",
+            "image_win": "datasets/journeydb/generated_images/"+str(understanding_caption_data[i]["id"])+"/"+str(max_index)+".png",
+            "image_lose": "datasets/journeydb/generated_images/"+str(understanding_caption_data[i]["id"])+"/"+str(min_index)+".png",
             "vqa_score_win": max_result,
             "vqa_score_lose": min_result
         }, f, ensure_ascii=False, indent=4)
