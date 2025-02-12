@@ -1,17 +1,4 @@
 # HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation
-
-This repository contains the official implementation of [HermesFlow](https://arxiv.org/abs/).
-
-> [**HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation**](https://arxiv.org/abs/)   
-> [Ling Yang\*](https://yangling0818.github.io/), 
-> [Xinchen Zhang\*](https://cominclip.github.io/), 
-> [Ye Tian](https://tyfeld.github.io/), 
-> [Chenming Shang](https://helloscm.github.io/),
-> [Minghao Xu](https://chrisallenming.github.io/),
-> [Wentao Zhang](https://zwt233.github.io/), 
-> [Bin Cui](https://cuibinpku.github.io/) 
-> <br>**Peking University, Tsinghua University, Mila - Québec AI Institute**<br>
-
 <p align="left">
   <a href='https://arxiv.org/abs/2410.07171'>
   <img src='https://img.shields.io/badge/Arxiv-2410.07171-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a> 
@@ -20,10 +7,12 @@ This repository contains the official implementation of [HermesFlow](https://arx
   <a href="" target='_blank'>
   <img src="https://visitor-badge.laobi.icu/badge?page_id=Gen-Verse.HermesFlow&left_color=gray&right_color=%2342b983"></a> 
 </p>
-<details>
-    <summary>Click for full abstract</summary>
-The remarkable success of the autoregressive paradigm has made significant advancement in Multimodal Large Language Models (MLLMs), with powerful models like Show-o, Transfusion and Emu3 made notable strides in unified image understanding and generation. For the first time, we uncover a common phenomenon: the understanding capability of MLLMs is usually stronger than their generative capability, with a significant gap between them. Building on this insight, we propose HermesFlow, a simple and general framework designed to seamlessly bridge the gap between understanding and generation in MLLMs. Specifically, we take the homologous data as input to curate homologous preference data of both understanding and generation. Through Pair-DPO and self-play iterative optimization, HermesFlow effectively aligns multimodal understanding and generation using homologous preference data. Extensive experiments demonstrate the significant superiority of our approach over prior methods, particularly in narrowing the gap between multimodal understanding and generation. These findings highlight the potential of HermesFlow as a general alignment framework for next-generation multimodal foundation models.
-</details>
+
+This repository contains the official implementation (including data, scripts and model weights) of [HermesFlow](https://arxiv.org/abs/).
+
+![alt text](image.png)
+![alt text](image-1.png)
+
 
 ## Introduction
 
