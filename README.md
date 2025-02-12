@@ -10,8 +10,8 @@
 
 This repository contains the official implementation (including data, scripts and model weights) of [HermesFlow](https://arxiv.org/abs/).
 
-![alt text](image.png)
-![alt text](image-1.png)
+![alt text](./figs/image.png)
+![alt text](./figs/image-1.png)
 
 
 ## Introduction
