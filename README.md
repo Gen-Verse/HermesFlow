@@ -10,8 +10,8 @@
 
 This repository contains the official implementation (including data, scripts and model weights) of [HermesFlow](https://arxiv.org/abs/).
 
-![alt text](./figs/image.png)
-![alt text](./figs/image-1.png)
+
+
 
 
 ## Introduction
@@ -19,7 +19,8 @@ This repository contains the official implementation (including data, scripts an
 ![Alt text](figs/pipeline.png)
 
 HermesFlow is a general alignment framework for multimodal LLMs, which cruate homologous preference data itself and utilize self-play iterative optimization with Pair-DPO to seamlessly close the gap between multimodal understanding and generation.
-
+![alt text](./figs/image.png)
+![alt text](./figs/image-1.png)
 ## New Updates
 
 **[2025.2]** Checkpoint of HermesFlow(Show-o) is publicly available on [HuggingFace Repo](https://huggingface.co/comin/IterComp).
