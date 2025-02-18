@@ -132,7 +132,7 @@ if __name__ == '__main__':
                 num += 1 if text_sbert == vqa["answer"] else 0
             result.append(round((num / len(matching_vqa)), 3))
         with open(f'datasets/journeydb/generation_vqa_results.json', "a") as f:
-            json.dump({"id": vqa["id"],
+            json.dump({"id": vqa["id"], 
                        "caption": vqa["caption"],
                        "question_number": len(matching_vqa),
                         "image0": result[0],
