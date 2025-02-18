@@ -112,7 +112,7 @@ if __name__ == '__main__':
                     caption.append(text[0])
             else:
                 tempterature = 1
-                cont_toks_list = model.mmu_generate(input_ids, attention_mask=attention_mask,
+                cont_toks_list = model.mmu_generate(input_ids, attention_mask=attention_mask, 
                                                         max_new_tokens=config.max_new_tokens, top_k=top_k,
                                                         temperature=tempterature,
                                                         eot_token=uni_prompting.sptids_dict['<|eot|>'])
