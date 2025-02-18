@@ -31,7 +31,7 @@ HermesFlow is a general alignment framework for multimodal LLMs, which cruate ho
 
 ```shell
 git clone https://github.com/Gen-Verse/HermesFlow
-cd IterComp
+cd HermesFlow
 conda create -n HermesFlow python==3.8.10
 conda activate HermesFlow
 pip install -r requirements.txt
