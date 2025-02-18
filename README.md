@@ -1,14 +1,14 @@
 # HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation
 <p align="left">
-  <a href='https://arxiv.org/abs/2410.07171'>
-  <img src='https://img.shields.io/badge/Arxiv-2410.07171-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a> 
+  <a href='https://arxiv.org/abs/2502.12148'>
+  <img src='https://img.shields.io/badge/Arxiv-2502.12148-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a> 
   <a href='https://huggingface.co/comin/IterComp'>
   <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow'></a>
   <a href="" target='_blank'>
   <img src="https://visitor-badge.laobi.icu/badge?page_id=Gen-Verse.HermesFlow&left_color=gray&right_color=%2342b983"></a> 
 </p>
 
-This repository contains the official implementation (including data, scripts and model weights) of [HermesFlow](https://arxiv.org/abs/).
+This repository contains the official implementation (including data, scripts and model weights) of [HermesFlow](https://arxiv.org/abs/2502.12148).
 
 
 
@@ -165,7 +165,7 @@ accelerate launch --config_file accelerate_configs/1_gpu.yaml --main_process_por
 @article{yang2025hermesflow,
   title={HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation},
   author={Yang, Ling and Zhang, Xinchen and Tian, Ye and Shang, Chenming and Xu, Minghao and Zhang, Wentao and Cui, Bin},
-  journal={arXiv preprint arXiv:},
+  journal={arXiv preprint arXiv:2502.12148},
   year={2025}
 }
 ```
