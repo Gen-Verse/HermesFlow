@@ -37,7 +37,7 @@ conda activate HermesFlow
 pip install -r requirements.txt
 ```
 
-## Curate Homologous Preference Date
+## Curate Homologous Preference Data
 
 We randomly select 5,000 image-caption pairs from [JourneyDB](https://huggingface.co/datasets/JourneyDB/JourneyDB) as the homologous input data, and store the detailed information in `datasets/journeydb/initial_data.json` in the following format：
 
