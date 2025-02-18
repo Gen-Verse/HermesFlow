@@ -23,7 +23,7 @@ HermesFlow is a general alignment framework for multimodal LLMs, which cruate ho
 ![alt text](./figs/image-1.png)
 ## New Updates
 
-**[2025.2]** Checkpoint of HermesFlow(Show-o) is publicly available on [HuggingFace Repo](https://huggingface.co/Gen-Verse/HermesFlow).
+**[2025.2]** Checkpoint of HermesFlow is publicly available on [HuggingFace Repo](https://huggingface.co/Gen-Verse/HermesFlow).
 
 **[2025.2]** Our main code of HermesFlow is released.
 
