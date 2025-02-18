@@ -2,7 +2,7 @@
 <p align="left">
   <a href='https://arxiv.org/abs/2502.12148'>
   <img src='https://img.shields.io/badge/Arxiv-2502.12148-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a> 
-  <a href='https://huggingface.co/comin/IterComp'>
+  <a href='https://huggingface.co/Gen-Verse/HermesFlow'>
   <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow'></a>
   <a href="" target='_blank'>
   <img src="https://visitor-badge.laobi.icu/badge?page_id=Gen-Verse.HermesFlow&left_color=gray&right_color=%2342b983"></a> 
