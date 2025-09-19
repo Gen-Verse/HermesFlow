@@ -1,4 +1,4 @@
-# HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation
+# [NeurIPS 2025] HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation
 <p align="left">
   <a href='https://arxiv.org/abs/2502.12148'>
   <img src='https://img.shields.io/badge/Arxiv-2502.12148-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a> 
